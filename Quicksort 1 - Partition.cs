@@ -24,7 +24,24 @@ class Result
 
     public static List<int> quickSort(List<int> arr)
     {
+         int pivot = arr[0];  
+    List<int> left = new List<int>();
+    List<int> equal = new List<int>();
+    List<int> right = new List<int>();
 
+    foreach (int num in arr)
+    {
+        if (num < pivot)
+            left.Add(num);
+        else if (num == pivot)
+            equal.Add(num);
+        else
+            right.Add(num);
+    }
+    left.AddRange(equal);
+    left.AddRange(right);
+
+    return left;
     }
 
 }
